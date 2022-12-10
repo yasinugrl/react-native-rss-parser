@@ -112,6 +112,9 @@ const getItemCategories = (node) => {
 
 const getItemId = (node) => utils.getElementTextContent(node, 'guid');
 
+const leadImagePublicUrl = (node) => utils.getElementTextContent(node, 'g-custom:leadImagePublicUrl');
+
+
 const getItemPublished = (node) =>
   utils.getElementTextContent(node, 'pubDate') ||
   utils.getElementTextContent(node, 'dc:date');
@@ -159,6 +162,7 @@ const mapItems = (document) => {
     description: getItemDescription(item),
     content: getItemContent(item),
     id: getItemId(item),
+    leadImagePublicUrl: leadImagePublicUrl(item),
     authors: getItemAuthors(item),
     categories: getItemCategories(item),
     published: getItemPublished(item),
